@@ -23,7 +23,7 @@ client.on('guildMemberAdd', Sal => {
     .setThumbnail(Sal.user.avatarURL)
     .setImage('https://cdn.discordapp.com/attachments/529659606419374081/531406992909139968/1line.gif')
     .setTitle('عضو جديد!')
-    .setDescription('MAR7BA BIK FI SERVER )
+    .setDescription('MAR7BA BIK FI SERVER')
     .addField('``YOUR ID``:',"" +  Sal.user.id, true)
     .addField('``YOUR TAG``', Sal.user.discriminator, true)
     .addField('``YOU CREATED AT ``', Sal.user.createdAt, true)
@@ -34,5 +34,4 @@ client.on('guildMemberAdd', Sal => {
     if (!channel) return;
     channel.send({embed : embed});
     });
-
   client.login(process.env.BOT_TOKEN);
