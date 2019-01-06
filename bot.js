@@ -7,6 +7,18 @@ client.on('ready', () => {
 console.log("log");
 });
 
+client.on('guildMemberAdd', member => {
+    var embed = new Discord.RichEmbed()
+    .setThumbnail(member.user.avatarURL)
+  .addField("***:rose: THANKS FOR JOINING OUR SERVER:rose: :***" ,member.user.username )
+    .setDescription('***:heart: HOPE YOU ENJOY IN FALLEGA TEAM ᴳᴬᴹᴵᴺᴳ SERVER:heart: : ***')
+    .setColor('RANDOM')
+    .setImage('https://cdn.pg.sa/OD53Wjr9p0.gif')
+var channel =member.guild.channels.find('name', '【welcome】')
+if (!channel) return;
+channel.send({embed : embed});
+});
+
 
 client.on("guildMemberAdd", member => {
     member.createDM().then(function (channel) {
@@ -14,24 +26,22 @@ client.on("guildMemberAdd", member => {
   :crown: MAR7BA SI  ${member}:crown:  
   :arrow_right:  YOU ARE THE MEMBER NUMBER :  ${member.guild.memberCount} `) 
   }).catch(console.error)
-  })
-
+});
   
-client.on('guildMemberAdd', Sal => {
+
+client.on('guildMemberRemove', member => {
     var embed = new Discord.RichEmbed()
-    .setAuthor(Sal.user.username, Sal.user.avatarURL)
-    .setThumbnail(Sal.user.avatarURL)
-    .setImage('https://cdn.discordapp.com/attachments/529659606419374081/531406992909139968/1line.gif')
-    .setTitle('عضو جديد!')
-    .setDescription('MAR7BA BIK FI SERVER')
-    .addField('``YOUR ID``:',"" +  Sal.user.id, true)
-    .addField('``YOUR TAG``', Sal.user.discriminator, true)
-    .addField('``YOU CREATED AT ``', Sal.user.createdAt, true)
-    .addField(' 👤  YOU ARE THE MEMBER NUMBER',`**[ ${Sal.guild.memberCount} ]**`,true)
-    .setColor('RANDOM')
-    .setFooter(Sal.guild.name, Sal.guild.iconURL, true)
-    var channel =Sal.guild.channels.find('【welcome】', 'welcome')
-    if (!channel) return;
-    channel.send({embed : embed});
-    });
-  client.login(process.env.BOT_TOKEN);
+    .setAuthor(member.user.username, member.user.avatarURL)
+    .setThumbnail(member.user.avatarURL)
+    .setTitle(`RABI M3AK ✋:skin-tone-1: 😔`)
+    .setDescription(`ريح السد إيهز ما يرد ✋:skin-tone-1: 😔 `)
+    .addField('MAZELOU FI SERVER 👤:',`**[ ${member.guild.memberCount} ]**`,true)
+    .setColor('RED')
+    .setFooter(`==== (っ◔◡◔)っ ♥ 𝐇𝐎𝐏𝐄 𝐘𝐎𝐔 𝐄𝐍𝐉𝐎𝐘 ♥ ====`, 'https://cdn.discordapp.com/attachments/397818254439219217/399292026782351381/shy.png')
+
+var channel =member.guild.channels.find('name', '【welcome】')
+if (!channel) return;
+channel.send({embed : embed});
+})
+
+client.login(process.env.BOT_TOKEN);
